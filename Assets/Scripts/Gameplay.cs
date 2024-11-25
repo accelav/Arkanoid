@@ -12,6 +12,7 @@ public class Gameplay : MonoBehaviour
     GameObject botonInicar;
     [SerializeField]
     GameObject botónOpciones;
+    public bool estaIniciada = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,14 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (estaIniciada)
+        {
+            LeanTween leanTween
+        }
+    }
+
+    public void IniciarPartida()
+    {
+        estaIniciada = true;
     }
 }
