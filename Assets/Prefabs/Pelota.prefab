@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5973955503669872416}
   - component: {fileID: 5089993614902831094}
   - component: {fileID: 7045352159911380969}
-  - component: {fileID: 8476604027235933862}
+  - component: {fileID: -6680901885383155731}
   m_Layer: 0
   m_Name: Pelota
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &8476604027235933862
+--- !u!114 &-6680901885383155731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,12 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4391935937970907745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbb22a12190b936459a4305e98c86409, type: 3}
+  m_Script: {fileID: 11500000, guid: 962bb78b895bd7c47acaf95b7aa85274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 2
-  direccionInicial: {x: 1, y: 1, z: 0}
-  limiteSup: 3.4
-  limiteDer: 1
-  limiteIzq: -1
-  plataforma: {fileID: 0}

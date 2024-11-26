@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Plataforma
   - Cube
+  - ParedSuperior
+  - ParedesLaterales
+  - ParedAbajo
   layers:
   - Default
   - TransparentFX
