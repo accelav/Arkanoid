@@ -7,7 +7,7 @@ public class MoviemientoPlataforma : MonoBehaviour
 
     public float limiteDer = 0.95f;   // Límite derecho
     public float limiteIzq = -0.95f; // Límite izquierdo
-    public float velocidad = 5f;     // Velocidad de la plataforma
+    public float velocidad = 100f;     // Velocidad de la plataforma
 
     GameObject plataforma;
 
@@ -30,11 +30,20 @@ public class MoviemientoPlataforma : MonoBehaviour
             
 
         }
+
+        if (Gameplay.vida <= 0)
+        {
+            velocidad = 0;
+        }
+        else
+        {
+            velocidad = 100f;
+        }
     }
     void FixedUpdate()
     {
 
-        // Obtener entrada del jugador
+        
         float movimiento = Input.GetAxisRaw("Horizontal") * Time.deltaTime * velocidad;
 
         // Calcular nueva posición basada en la entrada

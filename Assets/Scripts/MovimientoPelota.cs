@@ -12,7 +12,7 @@ public class MovimientoPelota : MonoBehaviour
     Vector3 movimientoVertical = Vector3.up;
     bool moviendo = false;
     
-    Vector3 positionPlat = MoviemientoPlataforma.gameObject.transform.localPosition.x;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,21 +23,36 @@ public class MovimientoPelota : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  
+        if (Gameplay.estaIniciada == true)
+        {
+            LeanTween.alpha(gameObject, 1f, 2f);
+        }
 
+
+        float posicionXPlataforma = MovimientoPlataforma.gameObject.transform.position.x;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            moviendo = true;
+            moviendo = true;   
+            
         }
 
         if (moviendo)
         {
 
-            transform.position += (movimientoHorizontal + movimientoVertical) * Time.deltaTime * velocidad;
+            if (Gameplay.vida <= 0)
+            {
+                moviendo = false;
+            }
+            else
+            {
+                transform.position += (movimientoHorizontal + movimientoVertical) * Time.deltaTime * velocidad;
+                Gameplay.estaContando = true;
+            }
         }
-        if (Gameplay.estaIniciada == true)
+        
+        else
         {
-            LeanTween.alpha(gameObject, 1f, 2f);
+            gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
         }
 
 
@@ -46,6 +61,7 @@ public class MovimientoPelota : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        float posicionXPlataforma = MovimientoPlataforma.gameObject.transform.position.x;
         if (collision.gameObject.tag == "ParedesLaterales")
         {
             movimientoHorizontal = -movimientoHorizontal;
@@ -60,9 +76,25 @@ public class MovimientoPelota : MonoBehaviour
         }
         if (collision.gameObject.tag == "ParedAbajo")
         {
-            movimientoVertical = -movimientoVertical;
-            gameObject.transform.position = new Vector3(0, 0.15f, 0);
+            Gameplay.vida = Gameplay.vida - 1;
+            
 
+            if (Gameplay.vida <= 0)
+            {
+                Gameplay.textoVida.gameObject.SetActive(false);
+                Gameplay.imagenGameOver.gameObject.SetActive(true);
+                gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
+                Gameplay.estaContando = false;
+                
+            }
+            else
+            {
+                Gameplay.imagenGameOver.gameObject.SetActive(false);
+            }
+            
+            movimientoVertical = -movimientoVertical;
+            gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
+            
         }
     }
 
