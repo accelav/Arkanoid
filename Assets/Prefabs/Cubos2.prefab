@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4424094692754966794}
   - component: {fileID: 3495883260609960983}
   - component: {fileID: 2685764817032858852}
+  - component: {fileID: 8695991401661723427}
   m_Layer: 0
   m_Name: Cubos2
   m_TagString: Untagged
@@ -91,7 +92,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8905888993527130939}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 39b4d3f8f1cdc3146bda49f1ca57f2a6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -105,3 +106,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8695991401661723427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905888993527130939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82370c4b1dcc14e4b8b9180a7f8fe488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidasCubo: 4
+  haGolpeado: 0

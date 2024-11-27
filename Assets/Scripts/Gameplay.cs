@@ -54,9 +54,8 @@ public class Gameplay : MonoBehaviour
             LeanTween.moveLocalX(botonOpciones, 250f, velocidad).setEase(LeanTweenType.easeOutSine);
             textoVida.gameObject.SetActive(true);
             textoTiempo.gameObject.SetActive(true);
-            
-            
 
+          
             estaIniciada = false;
 
         }

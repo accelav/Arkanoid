@@ -7,17 +7,19 @@ public class MovimientoPelota : MonoBehaviour
 {
     public Gameplay Gameplay;
     public MoviemientoPlataforma MovimientoPlataforma;
+    public ComportamientoCubos ComportamientoCubos;
     public float velocidad = 2f;
     Vector3 movimientoHorizontal = Vector3.right;
     Vector3 movimientoVertical = Vector3.up;
     bool moviendo = false;
+    Rigidbody rb;
     
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>(); 
     }
 
     // Update is called once per frame
@@ -45,13 +47,16 @@ public class MovimientoPelota : MonoBehaviour
             }
             else
             {
-                transform.position += (movimientoHorizontal + movimientoVertical) * Time.deltaTime * velocidad;
+
+                //transform.position += (movimientoHorizontal + movimientoVertical) * Time.deltaTime * velocidad;
+                rb.velocity = new Vector3(1, 10, 0) * Time.deltaTime * velocidad;
                 Gameplay.estaContando = true;
             }
         }
         
         else
         {
+            //gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
             gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
         }
 
@@ -62,7 +67,7 @@ public class MovimientoPelota : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         float posicionXPlataforma = MovimientoPlataforma.gameObject.transform.position.x;
-        if (collision.gameObject.tag == "ParedesLaterales")
+        /*if (collision.gameObject.tag == "ParedesLaterales")
         {
             movimientoHorizontal = -movimientoHorizontal;
         }
@@ -74,6 +79,13 @@ public class MovimientoPelota : MonoBehaviour
         {
             movimientoVertical = -movimientoVertical;
         }
+        if (collision.gameObject.tag == "Cube")
+        {
+            
+            //movimientoVertical = -movimientoVertical;
+            //movimientoHorizontal = -movimientoHorizontal;
+        }*/
+        
         if (collision.gameObject.tag == "ParedAbajo")
         {
             Gameplay.vida = Gameplay.vida - 1;
@@ -85,6 +97,7 @@ public class MovimientoPelota : MonoBehaviour
                 Gameplay.imagenGameOver.gameObject.SetActive(true);
                 gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
                 Gameplay.estaContando = false;
+
                 
             }
             else
@@ -92,10 +105,12 @@ public class MovimientoPelota : MonoBehaviour
                 Gameplay.imagenGameOver.gameObject.SetActive(false);
             }
             
-            movimientoVertical = -movimientoVertical;
+            //movimientoVertical = -movimientoVertical;
             gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
             
         }
+
+        
     }
 
 }

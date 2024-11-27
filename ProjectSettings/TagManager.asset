@@ -9,6 +9,9 @@ TagManager:
   - ParedSuperior
   - ParedesLaterales
   - ParedAbajo
+  - Cube2
+  - Otro
+  - Pelota
   layers:
   - Default
   - TransparentFX
