@@ -31,7 +31,7 @@ public class MoviemientoPlataforma : MonoBehaviour
 
         }
 
-        if (Gameplay.vida <= 0)
+        if (Gameplay.vida <= 0 || Gameplay.todosDesactivados)
         {
             velocidad = 0;
         }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class ComportamientoCubos : MonoBehaviour
 {
     public int vidasCubo = 2;
-
+    public int puntos;
+    public int sumaPuntos = 500;
     public bool haGolpeado =  false;
 
     void Start()
@@ -16,21 +17,15 @@ public class ComportamientoCubos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (haGolpeado)
-        {
-            vidasCubo--;
-
-            if (vidasCubo == 0)
-            {
-                gameObject.SetActive(false);
-            }
-        }*/
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        puntos += sumaPuntos;
         if (collision.gameObject.tag == "Pelota")
         {
+            haGolpeado = true;
             vidasCubo--;
             if (vidasCubo <= 0)
             {
