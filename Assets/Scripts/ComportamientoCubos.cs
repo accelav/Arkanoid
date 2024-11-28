@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ComportamientoCubos : MonoBehaviour
@@ -17,19 +18,21 @@ public class ComportamientoCubos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        puntos += sumaPuntos;
+        
         if (collision.gameObject.tag == "Pelota")
         {
-            haGolpeado = true;
+            PuntosManager.Instancia.SumarPuntos(sumaPuntos);
             vidasCubo--;
             if (vidasCubo <= 0)
             {
-                
                 gameObject.SetActive(false);
             }
 

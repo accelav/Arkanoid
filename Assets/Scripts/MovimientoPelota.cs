@@ -87,24 +87,24 @@ public class MovimientoPelota : MonoBehaviour
         {
             foreach (ContactPoint contact in collision.contacts)
             {
-                float puntoDeContacto = contact.point.x; // Posición del contacto
+                float puntoDeContacto = contact.point.x;
                 float centroPlataforma = collision.transform.position.x; // Centro de la plataforma
 
-                // Calcula la diferencia normalizada
+                
                 float diferencia = puntoDeContacto - centroPlataforma;
                 float anchoPlataforma = collision.collider.bounds.size.x / 2; // Mitad del ancho
 
-                float factor = diferencia / anchoPlataforma; // Normaliza la diferencia (-1 a 1)
+                float factor = diferencia / anchoPlataforma; 
 
-                // Ajusta el vector de movimiento
+                
 
                 movimientoHorizontal = new Vector3(factor, 0, 0);
                 movimientoVertical = new Vector3(0, 1, 0);
 
-                // Combina las direcciones y ajusta la velocidad
+                
                 Vector3 nuevaDireccion = (movimientoHorizontal + movimientoVertical).normalized * velocidad;
 
-                // Actualiza los vectores de movimiento
+                
                 movimientoHorizontal = new Vector3(nuevaDireccion.x, 0, 0);
                 movimientoVertical = new Vector3(0, nuevaDireccion.y, 0);
             }
@@ -129,34 +129,6 @@ public class MovimientoPelota : MonoBehaviour
             }
         }
 
-            
-        /*if (collision.gameObject.tag == "Cube")
-        {
-            
-
-          
-        }
-
-
-        if (collision.gameObject.tag == "ParedesLaterales")
-        {
-            movimientoHorizontal = -movimientoHorizontal;
-        }
-        if (collision.gameObject.tag == "ParedSuperior")
-        {
-            movimientoVertical = -movimientoVertical;
-        }
-        if (collision.gameObject.tag == "Plataforma")
-        {
-            movimientoVertical = -movimientoVertical;
-        }
-        /*if (collision.gameObject.tag == "Cube")
-        {
-            
-            //movimientoVertical = -movimientoVertical;
-            //movimientoHorizontal = -movimientoHorizontal;
-        }*/
-
         if (collision.gameObject.tag == "ParedAbajo")
         {
             Gameplay.vida = Gameplay.vida - 1;
@@ -164,19 +136,19 @@ public class MovimientoPelota : MonoBehaviour
 
             if (Gameplay.vida <= 0)
             {
-                Gameplay.textoVida.gameObject.SetActive(false);
+                Gameplay.textos.SetActive(false);
                 Gameplay.imagenGameOver.gameObject.SetActive(true);
                 gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
                 Gameplay.estaContando = false;
+                Gameplay.canvasPuntosFinales.SetActive(true);
 
-                
+
             }
             else
             {
                 Gameplay.imagenGameOver.gameObject.SetActive(false);
             }
             
-            //movimientoVertical = -movimientoVertical;
             gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
             
         }

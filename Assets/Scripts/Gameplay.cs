@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class Gameplay : MonoBehaviour
 {
     public MovimientoPelota MovimientoPelota;
-
+    //public PuntosManager puntosManager;
     [SerializeField]
     GameObject botonIniciar;
     [SerializeField]
@@ -35,10 +36,18 @@ public class Gameplay : MonoBehaviour
 
     [SerializeField]
     public TextMeshProUGUI textoPuntos;
+    public TextMeshProUGUI puntosFinales;
+    public TextMeshProUGUI puntosRecord;
     public int puntos;
+    public int puntosTotales;
+    public bool haTocado = false;
+    [SerializeField]
+    public GameObject canvasPuntosFinales;
+    int ultimoRecord;
+    int puntosFinalesInt;
 
     [SerializeField]
-    GameObject textos;
+    public GameObject textos;
 
 
     public string tagObjetos = "Cube"; // El tag de los objetos que deseas comprobar
@@ -52,13 +61,12 @@ public class Gameplay : MonoBehaviour
     void Start()
     {
         estaIniciada = false;
-
-        textos.SetActive(false);
-
         Cubos = GameObject.FindGameObjectsWithTag(tagObjetos);
-
+        textos.SetActive(false);
         ComportamientoCubos comportamientoCubos = FindObjectOfType<ComportamientoCubos>();
         puntos = comportamientoCubos.puntos;
+
+
 
 
     }
@@ -66,15 +74,18 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         textoTiempo.text = tiempo.ToString("00");
         textoVida.text = vida.ToString();
-        textoPuntos.text = puntos.ToString("000");
+        textoPuntos.text =  PuntosManager.Instancia.ObtenerPuntos().ToString();
+        puntosFinales.text = "Puntos Finales: " + PuntosManager.Instancia.ObtenerPuntos().ToString();
+        puntosRecord.text = "Record Anterior: " + PuntosManager.Instancia.ObtenerRecord();
 
         if (estaIniciada)
         {
-            LeanTween.moveLocalX(botonIniciar, 250f, velocidad).setEase(LeanTweenType.easeOutSine);
-            LeanTween.moveLocalX(botonOpciones, 250f, velocidad).setEase(LeanTweenType.easeOutSine);
-            LeanTween.moveLocalX(botonSalir, 250f, velocidad).setEase(LeanTweenType.easeOutSine);
+            LeanTween.moveLocalX(botonIniciar, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
+            LeanTween.moveLocalX(botonOpciones, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
+            LeanTween.moveLocalX(botonSalir, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
 
             textos.SetActive(true);
             
@@ -96,7 +107,7 @@ public class Gameplay : MonoBehaviour
             LeanTween.alpha(esfera, 0f, 0.4f);
             LeanTween.alpha(plataforma, 0f, 0.4f);
 
-            
+            canvasPuntosFinales.SetActive(false);
 
 
             todosDesactivados = false;
@@ -111,7 +122,7 @@ public class Gameplay : MonoBehaviour
             
         }
 
-        if (!todosInactivos)
+        if (!todosInactivos && MovimientoPelota.moviendo)
         {
             todosDesactivados = true;
 
@@ -126,19 +137,16 @@ public class Gameplay : MonoBehaviour
                 }
             }
 
-            // Si todos los objetos están inactivos, activar la lógica deseada
             if (todosDesactivados)
             {
                 todosInactivos = true;
                 imagenHasGanado.SetActive(true);
-                // Aquí pones lo que quieres hacer cuando todos los objetos estén inactivos
-                textoVida.gameObject.SetActive(false);
                 estaContando = false;
                 MovimientoPelota.moviendo = false;
+                textos.SetActive(false);
+                canvasPuntosFinales.SetActive(true);
             }
         }
-
-
 
 
     }
@@ -147,6 +155,7 @@ public class Gameplay : MonoBehaviour
     {
         estaIniciada = true;
         vida = nuevaVida;
+        PuntosManager.Instancia.ReiniciarPuntos();
 
     }
 
@@ -156,6 +165,7 @@ public class Gameplay : MonoBehaviour
         textos.SetActive(false);
         puntos = 0;
         tiempo = 0;
+        
 
     }
 

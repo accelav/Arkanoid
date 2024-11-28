@@ -281,6 +281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82370c4b1dcc14e4b8b9180a7f8fe488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vidasCubo: 2
+  puntos: 0
+  sumaPuntos: 1000
   haGolpeado: 0
 --- !u!1 &4858056653184803845
 GameObject:

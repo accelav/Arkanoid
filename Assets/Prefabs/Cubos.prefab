@@ -119,4 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidasCubo: 1
+  puntos: 0
+  sumaPuntos: 500
   haGolpeado: 0

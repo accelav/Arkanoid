@@ -19,6 +19,6 @@ public class SalirJuego : MonoBehaviour
     public void SalirDelJuego()
     {
         Application.Quit();
-        Debug.Log("Salio dle Juego");
+        Debug.Log("Salio del Juego");
     }
 }
