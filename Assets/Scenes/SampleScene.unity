@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+<<<<<<< Updated upstream
   m_IndirectSpecularColor: {r: 0.03667442, g: 0.050276954, b: 0.071383506, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+>>>>>>> Stashed changes
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +127,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!1 &46115858
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +355,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 469578354}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &172128842
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,8 +443,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
+<<<<<<< Updated upstream
   m_fontSize: 70
   m_fontSizeBase: 70
+=======
+  m_fontSize: 135.3
+  m_fontSizeBase: 135.3
+>>>>>>> Stashed changes
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -518,10 +530,17 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1304962670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 464.34528}
   m_SizeDelta: {x: 0, y: -928.69}
+=======
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0000029799, y: 325}
+  m_SizeDelta: {x: 1080, y: 629.163}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &175019604
 MonoBehaviour:
@@ -572,8 +591,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
+<<<<<<< Updated upstream
   m_fontSize: 275
   m_fontSizeBase: 275
+=======
+  m_fontSize: 298.82
+  m_fontSizeBase: 298.82
+>>>>>>> Stashed changes
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -879,10 +903,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
+<<<<<<< Updated upstream
   m_fontSize: 70
   m_fontSizeBase: 70
+=======
+  m_fontSize: 72
+  m_fontSizeBase: 24
+>>>>>>> Stashed changes
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1108,8 +1137,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 373.742, y: 801.031}
   m_SizeDelta: {x: 334.587, y: 107.213}
+=======
+  m_AnchoredPosition: {x: 454.19107, y: 847.5132}
+  m_SizeDelta: {x: 183.592, y: 204.432}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &306305502
 MonoBehaviour:
@@ -1346,6 +1380,7 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+<<<<<<< Updated upstream
 --- !u!114 &330585548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1358,6 +1393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc4e1959b19fc64a9d53facfe758ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> Stashed changes
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,6 +1618,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2101506750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+<<<<<<< Updated upstream
 --- !u!1001 &469578354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1719,6 +1757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa10063e8dc1f74b884e0a6d0ae1cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> Stashed changes
 --- !u!1 &472053751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,8 +2005,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 0, y: 6.64}
   m_SizeDelta: {x: 530.172, y: 99.664}
+=======
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 517.318, y: 199.202}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &559849739
 MonoBehaviour:
@@ -2964,8 +3009,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 0, y: -106.312}
   m_SizeDelta: {x: 530.172, y: 99.664}
+=======
+  m_AnchoredPosition: {x: 0, y: -200}
+  m_SizeDelta: {x: 517.318, y: 199.202}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &945075547
 MonoBehaviour:
@@ -3301,8 +3351,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 1.653, y: 801.031}
   m_SizeDelta: {x: 409.593, y: 107.213}
+=======
+  m_AnchoredPosition: {x: 3.646, y: 850.7583}
+  m_SizeDelta: {x: 1084.681, y: 210.899}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1035209509
 MonoBehaviour:
@@ -3437,8 +3492,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 0, y: -564}
   m_SizeDelta: {x: 533.342, y: 91.583}
+=======
+  m_AnchoredPosition: {x: 0.000014782, y: -202}
+  m_SizeDelta: {x: 524.61, y: 197.721}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1137333945
 MonoBehaviour:
@@ -3907,8 +3967,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 5.427, y: 6.645}
   m_SizeDelta: {x: 1057.03, y: 1883.651}
+=======
+  m_AnchoredPosition: {x: -0.823, y: -1.646}
+  m_SizeDelta: {x: 1080, y: 1920}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1304962671
 MonoBehaviour:
@@ -4284,8 +4349,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
+<<<<<<< Updated upstream
   m_fontSize: 70
   m_fontSizeBase: 70
+=======
+  m_fontSize: 114.1
+  m_fontSizeBase: 114.1
+>>>>>>> Stashed changes
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -5034,7 +5104,12 @@ Transform:
   - {fileID: 472053752}
   - {fileID: 2101506750}
   - {fileID: 1147258668}
+<<<<<<< Updated upstream
   - {fileID: 130419165}
+=======
+  - {fileID: 2036255118}
+  - {fileID: 472053752}
+>>>>>>> Stashed changes
   - {fileID: 1306316154}
   - {fileID: 210224248}
   m_Father: {fileID: 0}
@@ -5057,7 +5132,7 @@ MonoBehaviour:
   botonOpciones: {fileID: 945075545}
   botonSalir: {fileID: 666067522}
   esfera: {fileID: 1147258662}
-  plataforma: {fileID: 130419154}
+  plataforma: {fileID: 2036255117}
   estaIniciada: 0
   velocidad: 0.5
   textoVida: {fileID: 306305502}
@@ -5168,7 +5243,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1977897331}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!1 &2088395797
+=======
+--- !u!1 &2036255117
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5176,22 +5255,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream
   - component: {fileID: 2088395798}
   - component: {fileID: 2088395800}
   - component: {fileID: 2088395799}
   m_Layer: 0
   m_Name: Has Ganado
   m_TagString: Untagged
+=======
+  - component: {fileID: 2036255118}
+  - component: {fileID: 2036255121}
+  - component: {fileID: 2036255120}
+  - component: {fileID: 2036255119}
+  - component: {fileID: 2036255122}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Plataforma
+>>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< Updated upstream
 --- !u!224 &2088395798
 RectTransform:
+=======
+--- !u!4 &2036255118
+Transform:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 2088395797}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -5206,11 +5302,95 @@ RectTransform:
   m_SizeDelta: {x: 331.36, y: 166.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2088395799
+=======
+  m_GameObject: {fileID: 2036255117}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2, y: -1.531, z: -0.952}
+  m_LocalScale: {x: 1.6, y: 0.099999, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1906732289}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2036255119
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036255117}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &2036255120
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036255117}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2036255121
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036255117}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2036255122
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 2088395797}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -5304,6 +5484,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088395797}
   m_CullTransparentMesh: 1
+=======
+  m_GameObject: {fileID: 2036255117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa10063e8dc1f74b884e0a6d0ae1cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gameplay: {fileID: 1906732290}
+  limiteDer: 0.95
+  limiteIzq: -0.95
+  velocidad: 100
+  posicionPlataforma: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
 --- !u!1 &2101506749
 GameObject:
   m_ObjectHideFlags: 0
@@ -5350,16 +5543,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6680901885383155731, guid: 663839cbc193d89439aceec623b12f3b,
         type: 3}
-      propertyPath: esfera
-      value: 
-      objectReference: {fileID: 1147258662}
-    - target: {fileID: -6680901885383155731, guid: 663839cbc193d89439aceec623b12f3b,
-        type: 3}
       propertyPath: Gameplay
       value: 
       objectReference: {fileID: 1906732290}
     - target: {fileID: -6680901885383155731, guid: 663839cbc193d89439aceec623b12f3b,
         type: 3}
+<<<<<<< Updated upstream
       propertyPath: velocidad
       value: 2
       objectReference: {fileID: 0}
@@ -5371,6 +5560,8 @@ PrefabInstance:
         type: 3}
     - target: {fileID: -6680901885383155731, guid: 663839cbc193d89439aceec623b12f3b,
         type: 3}
+=======
+>>>>>>> Stashed changes
       propertyPath: ComportamientoCubos
       value: 
       objectReference: {fileID: 0}
@@ -5378,17 +5569,7 @@ PrefabInstance:
         type: 3}
       propertyPath: MovimientoPlataforma
       value: 
-      objectReference: {fileID: 469578355}
-    - target: {fileID: 3192521875966166858, guid: 663839cbc193d89439aceec623b12f3b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1073305
-      objectReference: {fileID: 0}
-    - target: {fileID: 3192521875966166858, guid: 663839cbc193d89439aceec623b12f3b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.10733051
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2036255122}
     - target: {fileID: 3192521875966166858, guid: 663839cbc193d89439aceec623b12f3b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5444,6 +5625,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pelota
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 4391935937970907745, guid: 663839cbc193d89439aceec623b12f3b,
         type: 3}
       propertyPath: m_IsActive
@@ -5490,6 +5672,8 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+=======
+>>>>>>> Stashed changes
     - target: {fileID: 7045352159911380969, guid: 663839cbc193d89439aceec623b12f3b,
         type: 3}
       propertyPath: m_CollisionDetection

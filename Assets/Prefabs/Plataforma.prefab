@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6207792173547099029}
   - component: {fileID: 5818963379118686075}
   - component: {fileID: 1708040713468522914}
-  - component: {fileID: 2899099358222838584}
   - component: {fileID: -1899584955968223674}
+  - component: {fileID: 7248843267827757585}
   m_Layer: 0
   m_Name: Plataforma
-  m_TagString: Untagged
+  m_TagString: Plataforma
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,22 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2899099358222838584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9198635206014975250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfa10063e8dc1f74b884e0a6d0ae1cc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Gameplay: {fileID: 0}
-  limiteDer: 0.95
-  limiteIzq: -0.95
-  velocidad: 100
 --- !u!54 &-1899584955968223674
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,4 +111,21 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &7248843267827757585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198635206014975250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa10063e8dc1f74b884e0a6d0ae1cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gameplay: {fileID: 0}
+  limiteDer: 0.95
+  limiteIzq: -0.95
+  velocidad: 100
+  posicionPlataforma: {x: 0, y: 0, z: 0}

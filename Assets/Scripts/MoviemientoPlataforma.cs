@@ -5,19 +5,19 @@ public class MoviemientoPlataforma : MonoBehaviour
 {
     public Gameplay Gameplay; 
 
-    public float limiteDer = 0.95f;   // Límite derecho
-    public float limiteIzq = -0.95f; // Límite izquierdo
+    public float limiteDer = 0.95f;   // Lï¿½mite derecho
+    public float limiteIzq = -0.95f; // Lï¿½mite izquierdo
     public float velocidad = 100f;     // Velocidad de la plataforma
 
     GameObject plataforma;
 
-    private Rigidbody rb;
+    //private Rigidbody rb;
     private Vector3 escalaPlataforma;
     public Vector3 posicionPlataforma;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         escalaPlataforma = transform.localScale;
         posicionPlataforma = transform.localPosition;
     }
@@ -44,15 +44,17 @@ public class MoviemientoPlataforma : MonoBehaviour
     {
 
         
-        float movimiento = Input.GetAxisRaw("Horizontal") * Time.deltaTime * velocidad;
+        float movimiento = Input.GetAxisRaw("Horizontal") ;
 
-        // Calcular nueva posición basada en la entrada
-        Vector3 nuevaPosicion = rb.position + new Vector3(movimiento * Time.fixedDeltaTime, 0, 0);
+        transform.position = new Vector3(movimiento, 0, 0) * Time.deltaTime * velocidad;
 
-        // Restringir la posición dentro de los límites
-        nuevaPosicion.x = Mathf.Clamp(nuevaPosicion.x, limiteIzq + escalaPlataforma.x / 2, limiteDer - escalaPlataforma.x / 2);
+        // Calcular nueva posiciï¿½n basada en la entrada
+        //Vector3 nuevaPosicion = rb.position + new Vector3(movimiento * Time.fixedDeltaTime, 0, 0);
 
-        // Aplicar la nueva posición al Rigidbody
-        rb.MovePosition(nuevaPosicion);
+        // Restringir la posiciï¿½n dentro de los lï¿½mites
+        //uevaPosicion.x = Mathf.Clamp(nuevaPosicion.x, limiteIzq + escalaPlataforma.x / 2, limiteDer - escalaPlataforma.x / 2);
+
+        // Aplicar la nueva posiciï¿½n al Rigidbody
+        //rb.MovePosition(nuevaPosicion);
     }
 }
