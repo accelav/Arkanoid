@@ -65,16 +65,8 @@ public class Gameplay : MonoBehaviour
     void Start()
     {
         estaIniciada = false;
-<<<<<<< Updated upstream
         Cubos = GameObject.FindGameObjectsWithTag(tagObjetos);
         textos.SetActive(false);
-=======
-
-        textoTiempo.gameObject.SetActive(false);
-        botonIniciar.transform.localPosition = new Vector3( 0, 100 , 0);
-        botonOpciones.transform.localPosition = new Vector3(0 , -200, 0);
-        textoVida.gameObject.SetActive(false);
->>>>>>> Stashed changes
         
     }
 
@@ -96,7 +88,6 @@ public class Gameplay : MonoBehaviour
 
         if (estaIniciada)
         {
-<<<<<<< Updated upstream
             GeneradorObstaculos.ColocarObstaculos();
 
             LeanTween.moveLocalX(botonIniciar, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
@@ -106,12 +97,6 @@ public class Gameplay : MonoBehaviour
             textos.SetActive(true);
             
             imagenHasGanado.SetActive(false);
-=======
-            LeanTween.moveLocalX(botonIniciar, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
-            LeanTween.moveLocalX(botonOpciones, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
-            textoVida.gameObject.SetActive(true);
-            textoTiempo.gameObject.SetActive(true);
->>>>>>> Stashed changes
 
             estaIniciada = false;
 

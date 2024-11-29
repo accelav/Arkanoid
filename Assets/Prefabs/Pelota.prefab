@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6680901885383155731}
   m_Layer: 0
   m_Name: Pelota
-  m_TagString: Pelota
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.202, y: 0.16, z: 0.011}
-  m_LocalScale: {x: 0.1073305, y: 0.10733051, z: 0.1073305}
+  m_LocalScale: {x: 0.1073305, y: 0.1073305, z: 0.1073305}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,11 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-<<<<<<< Updated upstream
   - {fileID: 2100000, guid: a2934799133529c4db511fc44d781a55, type: 2}
-=======
-  - {fileID: 2100000, guid: e2221cd50494f854c887fd98c3ac1258, type: 2}
->>>>>>> Stashed changes
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,7 +93,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4391935937970907745}
-  m_Material: {fileID: 13400000, guid: 39b4d3f8f1cdc3146bda49f1ca57f2a6, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -121,7 +117,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

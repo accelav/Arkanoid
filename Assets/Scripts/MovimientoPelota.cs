@@ -13,24 +13,17 @@ public class MovimientoPelota : MonoBehaviour
     Vector3 movimientoVertical = Vector3.up;
     public bool moviendo = false;
     Rigidbody rb;
-<<<<<<< Updated upstream
     Vector3 vectorPelota = new Vector3(1, 1, 0);
     Vector3 vectorInicial;
-=======
-    Vector3 direccionInicial;
-    
->>>>>>> Stashed changes
 
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>(); 
     }
 
-<<<<<<< Updated upstream
     // Update is called once per frame
  
-=======
->>>>>>> Stashed changes
     void Update()
     {
         rb.velocity = (movimientoHorizontal + movimientoVertical).normalized * velocidad;
@@ -42,26 +35,13 @@ public class MovimientoPelota : MonoBehaviour
         }
 
 
-        
-
-
-
-    }
-    void FixedUpdate()
-    {
         float posicionXPlataforma = MovimientoPlataforma.gameObject.transform.position.x;
         if (Input.GetKeyDown(KeyCode.Space) && (moviendo == false))
         {
-<<<<<<< Updated upstream
             moviendo = true;
 
             
 
-=======
-            moviendo = true;   
-            direccionInicial = 
-            rb.velocity = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(1f, 2f)) * velocidad;
->>>>>>> Stashed changes
         }
 
         
@@ -76,14 +56,10 @@ public class MovimientoPelota : MonoBehaviour
             {
                 moviendo = false;
             }
-
-<<<<<<< Updated upstream
-                //transform.position += (movimientoHorizontal + movimientoVertical) * Time.deltaTime * velocidad;
-=======
             else
-
             {
->>>>>>> Stashed changes
+
+                //transform.position += (movimientoHorizontal + movimientoVertical) * Time.deltaTime * velocidad;
                 Gameplay.estaContando = true;
 
 
@@ -92,21 +68,17 @@ public class MovimientoPelota : MonoBehaviour
         
         else
         {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
             gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
 
         }
+
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Estachocando");
-        
         float posicionXPlataforma = MovimientoPlataforma.gameObject.transform.position.x;
-<<<<<<< Updated upstream
         //Debug.Log("Posicion x plataforma" + posicionXPlataforma);
        
         float posPelota = gameObject.transform.position.x;
@@ -158,29 +130,6 @@ public class MovimientoPelota : MonoBehaviour
                 }
             }
         }
-=======
-        if (collision.gameObject.tag == "Plataforma")
-        {
-            Debug.Log("Estachocando");
-            // Obtener la posición X de la pelota y la posición de la plataforma
-            float posicionXPelota = transform.position.x;
-
-            // Calcular el desplazamiento relativo en X (de -1 a 1)
-            float desplazamientoRelativo = posicionXPelota - posicionXPlataforma;
-
-            // Limitar el desplazamiento entre -1 y 1 (por seguridad)
-            desplazamientoRelativo = Mathf.Clamp(desplazamientoRelativo, -1f, 1f);
-
-            // Modificar la dirección de la pelota
-            Vector3 nuevaDireccion = new Vector3(desplazamientoRelativo, rb.velocity.y, 0);
-
-            // Aplicar la nueva dirección con la velocidad constante
-            rb.velocity = nuevaDireccion;
-        }
-
-
-
->>>>>>> Stashed changes
 
         if (collision.gameObject.tag == "ParedAbajo")
         {
