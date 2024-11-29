@@ -7,6 +7,8 @@ using UnityEngine;
 public class Gameplay : MonoBehaviour
 {
     public MovimientoPelota MovimientoPelota;
+    public GeneradorObstaculos GeneradorObstaculos;
+    //public ComportamientoCubos ComportamientoCubos;
     //public PuntosManager puntosManager;
     [SerializeField]
     GameObject botonIniciar;
@@ -53,7 +55,9 @@ public class Gameplay : MonoBehaviour
     public string tagObjetos = "Cube"; // El tag de los objetos que deseas comprobar
     private GameObject[] Cubos;
     public bool todosInactivos = false;
-    public bool todosDesactivados = false;
+    int unoMenos;
+    public int cuantosCubosQuedan;
+    int numeroObstaculos;
 
     public GameObject imagenHasGanado;
 
@@ -63,34 +67,35 @@ public class Gameplay : MonoBehaviour
         estaIniciada = false;
         Cubos = GameObject.FindGameObjectsWithTag(tagObjetos);
         textos.SetActive(false);
-        ComportamientoCubos comportamientoCubos = FindObjectOfType<ComportamientoCubos>();
-        puntos = comportamientoCubos.puntos;
-
-
-
-
+        
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        numeroObstaculos = GeneradorObstaculos.n;
+        cuantosCubosQuedan = numeroObstaculos + PuntosManager.Instancia.restarCubos;
+        
+
+
+
 
         textoTiempo.text = tiempo.ToString("00");
         textoVida.text = vida.ToString();
         textoPuntos.text =  PuntosManager.Instancia.ObtenerPuntos().ToString();
         puntosFinales.text = "Puntos Finales: " + PuntosManager.Instancia.ObtenerPuntos().ToString();
-        puntosRecord.text = "Record Anterior: " + PuntosManager.Instancia.ObtenerRecord();
+        puntosRecord.text = "Record Anterior: " + PuntosManager.Instancia.ObtenerRecord().ToString();
 
         if (estaIniciada)
         {
+            GeneradorObstaculos.ColocarObstaculos();
+
             LeanTween.moveLocalX(botonIniciar, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
             LeanTween.moveLocalX(botonOpciones, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
             LeanTween.moveLocalX(botonSalir, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
 
             textos.SetActive(true);
             
-
-            todosDesactivados = false;
             imagenHasGanado.SetActive(false);
 
             estaIniciada = false;
@@ -108,9 +113,8 @@ public class Gameplay : MonoBehaviour
             LeanTween.alpha(plataforma, 0f, 0.4f);
 
             canvasPuntosFinales.SetActive(false);
+            GeneradorObstaculos.DestruirObstaculos();
 
-
-            todosDesactivados = false;
             imagenHasGanado.SetActive(false);
 
             reiniciandoPartida = false;
@@ -119,35 +123,18 @@ public class Gameplay : MonoBehaviour
         if (estaContando)
         {
             tiempo += Time.deltaTime;
-            
-        }
 
-        if (!todosInactivos && MovimientoPelota.moviendo)
-        {
-            todosDesactivados = true;
-
-            // Revisar cada objeto en el arreglo
-            foreach (GameObject objeto in Cubos)
+            if (numeroObstaculos + PuntosManager.Instancia.restarCubos == 0)
             {
-                // Si algún objeto está activo, seguimos esperando
-                if (objeto.activeSelf)
-                {
-                    todosDesactivados = false;
-                    break;
-                }
-            }
-
-            if (todosDesactivados)
-            {
-                todosInactivos = true;
+ 
                 imagenHasGanado.SetActive(true);
                 estaContando = false;
-                MovimientoPelota.moviendo = false;
+                //MovimientoPelota.moviendo = false;
                 textos.SetActive(false);
                 canvasPuntosFinales.SetActive(true);
             }
-        }
 
+        }
 
     }
 
@@ -165,8 +152,7 @@ public class Gameplay : MonoBehaviour
         textos.SetActive(false);
         puntos = 0;
         tiempo = 0;
-        
-
+       
     }
 
 

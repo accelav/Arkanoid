@@ -36,10 +36,10 @@ public class MovimientoPelota : MonoBehaviour
 
 
         float posicionXPlataforma = MovimientoPlataforma.gameObject.transform.position.x;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && (moviendo == false))
         {
             moviendo = true;
-            
+
             
 
         }
@@ -52,7 +52,7 @@ public class MovimientoPelota : MonoBehaviour
         if (moviendo)
         {
 
-            if (Gameplay.vida <= 0 || Gameplay.todosDesactivados)
+            if (Gameplay.vida <= 0 || Gameplay.cuantosCubosQuedan == 0)
             {
                 moviendo = false;
             }
@@ -60,8 +60,9 @@ public class MovimientoPelota : MonoBehaviour
             {
 
                 //transform.position += (movimientoHorizontal + movimientoVertical) * Time.deltaTime * velocidad;
-                
                 Gameplay.estaContando = true;
+
+
             }
         }
         
@@ -91,6 +92,7 @@ public class MovimientoPelota : MonoBehaviour
                 float centroPlataforma = collision.transform.position.x; // Centro de la plataforma
 
                 
+
                 float diferencia = puntoDeContacto - centroPlataforma;
                 float anchoPlataforma = collision.collider.bounds.size.x / 2; // Mitad del ancho
 

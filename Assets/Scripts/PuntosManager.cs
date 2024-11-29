@@ -8,6 +8,7 @@ public class PuntosManager : MonoBehaviour
 
     private int puntos;
     private int record;
+    public int restarCubos = 0;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class PuntosManager : MonoBehaviour
     public void SumarPuntos(int cantidad)
     {
         puntos += cantidad;
+        
     }
 
     public int ObtenerPuntos()
@@ -65,5 +67,10 @@ public class PuntosManager : MonoBehaviour
     private void CargarRecord()
     {
         record = PlayerPrefs.GetInt("Record", 0);
+    }
+
+    public void RestarCubos()
+    {
+        restarCubos =  restarCubos - 1;
     }
 }

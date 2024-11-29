@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class ComportamientoCubos : MonoBehaviour
 {
+
     public int vidasCubo = 2;
-    public int puntos;
+
     public int sumaPuntos = 500;
     public bool haGolpeado =  false;
+    private GeneradorObstaculos generadorObstaculos;
 
     void Start()
     {
-        
+        generadorObstaculos = FindObjectOfType<GeneradorObstaculos>();
     }
 
     // Update is called once per frame
@@ -29,11 +31,13 @@ public class ComportamientoCubos : MonoBehaviour
         
         if (collision.gameObject.tag == "Pelota")
         {
-            PuntosManager.Instancia.SumarPuntos(sumaPuntos);
+            
             vidasCubo--;
             if (vidasCubo <= 0)
             {
-                gameObject.SetActive(false);
+                PuntosManager.Instancia.SumarPuntos(sumaPuntos);
+                PuntosManager.Instancia.RestarCubos();
+                Destroy(gameObject);
             }
 
             

@@ -31,7 +31,7 @@ public class MoviemientoPlataforma : MonoBehaviour
 
         }
 
-        if (Gameplay.vida <= 0 || Gameplay.todosDesactivados)
+        if (Gameplay.vida <= 0 || Gameplay.cuantosCubosQuedan == 0)
         {
             velocidad = 0;
         }
