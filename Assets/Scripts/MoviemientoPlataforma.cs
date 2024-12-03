@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class MoviemientoPlataforma : MonoBehaviour
 {
-    public Gameplay Gameplay; 
+    public Gameplay Gameplay;
+    public MovimientoPelota MovimientoPelota;
 
     public float limiteDer = 0.95f;   // Límite derecho
     public float limiteIzq = -0.95f; // Límite izquierdo
@@ -59,7 +60,11 @@ public class MoviemientoPlataforma : MonoBehaviour
     {
         if(collision.gameObject.tag == "Pelota")
         {
-            LeanTween.scaleY(gameObject, 0.07f, 0.15f).setLoopPingPong(1).setOnComplete(() => { });
+            if (MovimientoPelota.moviendo == true)
+            {
+                LeanTween.scaleY(gameObject, 0.07f, 0.15f).setLoopPingPong(1).setOnComplete(() => { });
+            }
+            
         }
     }
 }

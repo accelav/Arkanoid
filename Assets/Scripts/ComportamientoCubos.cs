@@ -12,6 +12,8 @@ public class ComportamientoCubos : MonoBehaviour
     public bool haGolpeado =  false;
     private GeneradorObstaculos generadorObstaculos;
 
+    private AudioSource audioSource;
+
     void Start()
     {
         generadorObstaculos = FindObjectOfType<GeneradorObstaculos>();
@@ -22,7 +24,7 @@ public class ComportamientoCubos : MonoBehaviour
     {
 
 
-        
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -38,6 +40,7 @@ public class ComportamientoCubos : MonoBehaviour
             vidasCubo--;
             if (vidasCubo <= 0)
             {
+                audioSource.Play();
                 PuntosManager.Instancia.SumarPuntos(sumaPuntos);
                 PuntosManager.Instancia.RestarCubos();
                 Destroy(gameObject);

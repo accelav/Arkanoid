@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -12,11 +13,10 @@ public class Gameplay : MonoBehaviour
     //public ComportamientoCubos ComportamientoCubos;
     //public PuntosManager puntosManager;
     [SerializeField]
-    GameObject botonIniciar;
+    GameObject botonesInicio;
     [SerializeField]
-    GameObject botonOpciones;
-    [SerializeField]
-    GameObject botonSalir;
+    GameObject sombreado;
+
     
     public GameObject esfera;
     public GameObject plataforma;
@@ -101,9 +101,9 @@ public class Gameplay : MonoBehaviour
         {
             GeneradorObstaculos.ColocarObstaculos();
 
-            LeanTween.moveLocalX(botonIniciar, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
-            LeanTween.moveLocalX(botonOpciones, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
-            LeanTween.moveLocalX(botonSalir, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
+            LeanTween.moveLocalY(botonesInicio, -700f, velocidad).setEase(LeanTweenType.easeOutSine);
+            LeanTween.moveLocalY(sombreado, -0f, velocidad).setEase(LeanTweenType.easeOutSine);
+
 
             imagenInicio.SetActive(false);
 
@@ -118,9 +118,8 @@ public class Gameplay : MonoBehaviour
         if (reiniciandoPartida)
         {
             imagenGameOver.SetActive(false);
-            LeanTween.moveLocalX(botonIniciar, 0, velocidad).setEase(LeanTweenType.easeOutSine);
-            LeanTween.moveLocalX(botonOpciones, 0, velocidad).setEase(LeanTweenType.easeOutSine);
-            LeanTween.moveLocalX(botonSalir, 0f, velocidad).setEase(LeanTweenType.easeOutSine);
+            LeanTween.moveLocalY(botonesInicio, 0f, velocidad).setEase(LeanTweenType.easeOutSine);
+            LeanTween.moveLocalY(sombreado, 2000f, velocidad).setEase(LeanTweenType.easeOutSine);
 
             LeanTween.alpha(esfera, 0f, 0.4f);
             LeanTween.alpha(plataforma, 0f, 0.4f);
@@ -165,6 +164,8 @@ public class Gameplay : MonoBehaviour
         estaIniciada = true;
         vida = nuevaVida;
         PuntosManager.Instancia.ReiniciarPuntos();
+
+
 
     }
 
