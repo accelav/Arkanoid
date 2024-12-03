@@ -31,7 +31,10 @@ public class ComportamientoCubos : MonoBehaviour
         
         if (collision.gameObject.tag == "Pelota")
         {
-            
+
+            LeanTween.alpha(gameObject, 0.2f, 0.15f).setLoopPingPong(1).setOnComplete(() => { });
+
+
             vidasCubo--;
             if (vidasCubo <= 0)
             {

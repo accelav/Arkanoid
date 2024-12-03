@@ -52,7 +52,7 @@ public class MovimientoPelota : MonoBehaviour
         if (moviendo)
         {
 
-            if (Gameplay.vida <= 0 || Gameplay.cuantosCubosQuedan == 0)
+            if (Gameplay.vida <= 0)
             {
                 moviendo = false;
             }
@@ -159,3 +159,4 @@ public class MovimientoPelota : MonoBehaviour
     }
 
 }
+

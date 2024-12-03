@@ -16,8 +16,8 @@ public class GeneradorObstaculos : MonoBehaviour
     public float espaciadoY = 2f;           // Espaciado en Y
     public int n = 0;
     public GameObject obstaculoSeleccionado;
-    private List<GameObject> obstáculosInstanciados = new List<GameObject>();  // Lista para almacenar los obstáculos
-    private bool obstáculosGenerados = false;  // Controla si los obstáculos ya han sido generados
+    private List<GameObject> obstaculosInstanciados = new List<GameObject>();  // Lista para almacenar los obstáculos
+    public bool obstáculosGenerados = false;  // Controla si los obstáculos ya han sido generados
 
     private void Start()
     {
@@ -39,37 +39,32 @@ public class GeneradorObstaculos : MonoBehaviour
             return;
         }
 
-        for (int fila = 0; fila < filas; fila++)
+        for (int fila = 0; fila  < filas; fila++)
         {
             for (int columna = 0; columna < columnas; columna++)
             {
-                // Calcula las posiciones en X e Y basadas en las filas y columnas
+
                 float posX = rangoXMin + columna * espaciadoX;
                 float posY = rangoYMin + fila * espaciadoY;
 
-                // Asegura que las posiciones están dentro de los límites del mapa
                 posX = Mathf.Clamp(posX, rangoXMin, rangoXMax);
                 posY = Mathf.Clamp(posY, rangoYMin, rangoYMax);
 
                 Vector3 posicion = new Vector3(posX, posY, 0f); // Coordenadas 3D
 
-                // Define el tamaño y orientación de la caja imaginaria para la detección
                 Vector3 size = new Vector3(espaciadoX * 0.9f, espaciadoY * 0.9f, 1f); // Tamaño de la caja
                 Quaternion orientation = Quaternion.identity; // Sin rotación
 
-                // Verifica si ya hay un objeto en la posición con Physics.OverlapBox
                 Collider[] colisiones = Physics.OverlapBox(posicion, size / 2, orientation);
 
-                if (colisiones.Length == 0) // Si no hay colisiones, instancia el objeto
+                if (colisiones.Length == 0) 
                 {
-                    // Selección aleatoria del tipo de obstáculo
+
                     obstaculoSeleccionado = tiposDeObstaculos[Random.Range(0, tiposDeObstaculos.Length)];
 
-                    // Instancia el obstáculo en la posición calculada
                     GameObject obstaculoInstanciado = Instantiate(obstaculoSeleccionado, posicion, Quaternion.identity);
 
-                    // Agregar el obstáculo instanciado a la lista
-                    obstáculosInstanciados.Add(obstaculoInstanciado);
+                    obstaculosInstanciados.Add(obstaculoInstanciado);
 
                     n++;
                 }
@@ -87,13 +82,13 @@ public class GeneradorObstaculos : MonoBehaviour
     // Método para destruir todos los obstáculos instanciados
     public void DestruirObstaculos()
     {
-        foreach (GameObject obstaculo in obstáculosInstanciados)
+        foreach (GameObject obstaculo in obstaculosInstanciados)
         {
             Destroy(obstaculo);
         }
 
         // Limpiar la lista después de destruir los obstáculos
-        obstáculosInstanciados.Clear();
+        obstaculosInstanciados.Clear();
         obstáculosGenerados = false;  // Marcar que los obstáculos han sido destruidos
     }
 

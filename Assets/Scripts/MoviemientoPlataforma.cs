@@ -31,7 +31,7 @@ public class MoviemientoPlataforma : MonoBehaviour
 
         }
 
-        if (Gameplay.vida <= 0 || Gameplay.cuantosCubosQuedan == 0)
+        if (Gameplay.vida <= 0)
         {
             velocidad = 0;
         }
@@ -55,4 +55,12 @@ public class MoviemientoPlataforma : MonoBehaviour
         // Aplicar la nueva posición al Rigidbody
         rb.MovePosition(nuevaPosicion);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Pelota")
+        {
+            LeanTween.scaleY(gameObject, 0.07f, 0.15f).setLoopPingPong(1).setOnComplete(() => { });
+        }
+    }
 }
+

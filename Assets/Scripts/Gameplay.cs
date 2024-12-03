@@ -8,6 +8,7 @@ public class Gameplay : MonoBehaviour
 {
     public MovimientoPelota MovimientoPelota;
     public GeneradorObstaculos GeneradorObstaculos;
+    public MoviemientoPlataforma MoviemientoPlataforma;
     //public ComportamientoCubos ComportamientoCubos;
     //public PuntosManager puntosManager;
     [SerializeField]
@@ -40,6 +41,7 @@ public class Gameplay : MonoBehaviour
     public TextMeshProUGUI textoPuntos;
     public TextMeshProUGUI puntosFinales;
     public TextMeshProUGUI puntosRecord;
+    public TextMeshProUGUI puntosRecord2;
     public int puntos;
     public int puntosTotales;
     public bool haTocado = false;
@@ -61,13 +63,22 @@ public class Gameplay : MonoBehaviour
 
     public GameObject imagenHasGanado;
 
+    [SerializeField]
+    GameObject imagenInicio;
+
+    float velocidadPelota;
+    float velocidadPlataforma;
+
     bool reiniciandoPartida = false;
     void Start()
     {
         estaIniciada = false;
         Cubos = GameObject.FindGameObjectsWithTag(tagObjetos);
         textos.SetActive(false);
-        
+        velocidadPelota = MovimientoPelota.velocidad;
+        velocidadPlataforma = MoviemientoPlataforma.velocidad;
+
+
     }
 
 
@@ -75,9 +86,8 @@ public class Gameplay : MonoBehaviour
     {
         numeroObstaculos = GeneradorObstaculos.n;
         cuantosCubosQuedan = numeroObstaculos + PuntosManager.Instancia.restarCubos;
+
         
-
-
 
 
         textoTiempo.text = tiempo.ToString("00");
@@ -85,6 +95,7 @@ public class Gameplay : MonoBehaviour
         textoPuntos.text =  PuntosManager.Instancia.ObtenerPuntos().ToString();
         puntosFinales.text = "Puntos Finales: " + PuntosManager.Instancia.ObtenerPuntos().ToString();
         puntosRecord.text = "Record Anterior: " + PuntosManager.Instancia.ObtenerRecord().ToString();
+        puntosRecord2.text = PuntosManager.Instancia.ObtenerRecord().ToString();
 
         if (estaIniciada)
         {
@@ -93,6 +104,8 @@ public class Gameplay : MonoBehaviour
             LeanTween.moveLocalX(botonIniciar, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
             LeanTween.moveLocalX(botonOpciones, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
             LeanTween.moveLocalX(botonSalir, 1000f, velocidad).setEase(LeanTweenType.easeOutSine);
+
+            imagenInicio.SetActive(false);
 
             textos.SetActive(true);
             
@@ -112,6 +125,8 @@ public class Gameplay : MonoBehaviour
             LeanTween.alpha(esfera, 0f, 0.4f);
             LeanTween.alpha(plataforma, 0f, 0.4f);
 
+            imagenInicio.SetActive(true);
+
             canvasPuntosFinales.SetActive(false);
             GeneradorObstaculos.DestruirObstaculos();
 
@@ -126,12 +141,19 @@ public class Gameplay : MonoBehaviour
 
             if (numeroObstaculos + PuntosManager.Instancia.restarCubos == 0)
             {
- 
-                imagenHasGanado.SetActive(true);
-                estaContando = false;
+                GeneradorObstaculos.DestruirObstaculos();
+                if (GeneradorObstaculos.obstáculosGenerados == false)
+                {
+                    GeneradorObstaculos.ColocarObstaculos();
+                }
+                //MovimientoPelota.velocidad = MovimientoPelota.velocidad * 1.2f;
+                //MoviemientoPlataforma.velocidad = MoviemientoPlataforma.velocidad * 1.2f;
+
+                //imagenHasGanado.SetActive(true);
+                //estaContando = false;
                 //MovimientoPelota.moviendo = false;
-                textos.SetActive(false);
-                canvasPuntosFinales.SetActive(true);
+               // textos.SetActive(false);
+                //canvasPuntosFinales.SetActive(true);
             }
 
         }
