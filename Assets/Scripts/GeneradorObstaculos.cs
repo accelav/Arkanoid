@@ -88,6 +88,7 @@ public class GeneradorObstaculos : MonoBehaviour
         }
 
         // Limpiar la lista después de destruir los obstáculos
+        n = 0;
         obstaculosInstanciados.Clear();
         obstáculosGenerados = false;  // Marcar que los obstáculos han sido destruidos
     }

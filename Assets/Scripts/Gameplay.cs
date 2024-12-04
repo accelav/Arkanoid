@@ -17,7 +17,8 @@ public class Gameplay : MonoBehaviour
     [SerializeField]
     GameObject sombreado;
 
-    
+
+
     public GameObject esfera;
     public GameObject plataforma;
     public bool estaIniciada = false;
@@ -59,7 +60,7 @@ public class Gameplay : MonoBehaviour
     public bool todosInactivos = false;
     int unoMenos;
     public int cuantosCubosQuedan;
-    int numeroObstaculos;
+    public int numeroObstaculos;
 
     public GameObject imagenHasGanado;
 
@@ -70,6 +71,11 @@ public class Gameplay : MonoBehaviour
     float velocidadPlataforma;
 
     bool reiniciandoPartida = false;
+
+    [SerializeField]
+    private AudioClip pulsacionBoton;
+
+
     void Start()
     {
         estaIniciada = false;
@@ -93,17 +99,17 @@ public class Gameplay : MonoBehaviour
         textoTiempo.text = tiempo.ToString("00");
         textoVida.text = vida.ToString();
         textoPuntos.text =  PuntosManager.Instancia.ObtenerPuntos().ToString();
-        puntosFinales.text = "Puntos Finales: " + PuntosManager.Instancia.ObtenerPuntos().ToString();
-        puntosRecord.text = "Record Anterior: " + PuntosManager.Instancia.ObtenerRecord().ToString();
+        puntosFinales.text = PuntosManager.Instancia.ObtenerPuntos().ToString();
+        puntosRecord.text = PuntosManager.Instancia.ObtenerRecord().ToString();
         puntosRecord2.text = PuntosManager.Instancia.ObtenerRecord().ToString();
 
         if (estaIniciada)
         {
-            GeneradorObstaculos.ColocarObstaculos();
+            
 
             LeanTween.moveLocalY(botonesInicio, -700f, velocidad).setEase(LeanTweenType.easeOutSine);
-            LeanTween.moveLocalY(sombreado, -0f, velocidad).setEase(LeanTweenType.easeOutSine);
 
+            sombreado.SetActive(true);
 
             imagenInicio.SetActive(false);
 
@@ -119,7 +125,8 @@ public class Gameplay : MonoBehaviour
         {
             imagenGameOver.SetActive(false);
             LeanTween.moveLocalY(botonesInicio, 0f, velocidad).setEase(LeanTweenType.easeOutSine);
-            LeanTween.moveLocalY(sombreado, 2000f, velocidad).setEase(LeanTweenType.easeOutSine);
+
+            sombreado.SetActive(false);
 
             LeanTween.alpha(esfera, 0f, 0.4f);
             LeanTween.alpha(plataforma, 0f, 0.4f);
@@ -127,7 +134,7 @@ public class Gameplay : MonoBehaviour
             imagenInicio.SetActive(true);
 
             canvasPuntosFinales.SetActive(false);
-            GeneradorObstaculos.DestruirObstaculos();
+            
 
             imagenHasGanado.SetActive(false);
 
@@ -156,6 +163,11 @@ public class Gameplay : MonoBehaviour
             }
 
         }
+        if (vida <= 0)
+        {
+            GeneradorObstaculos.DestruirObstaculos();
+            sombreado.SetActive(false);
+        }
 
     }
 
@@ -164,6 +176,10 @@ public class Gameplay : MonoBehaviour
         estaIniciada = true;
         vida = nuevaVida;
         PuntosManager.Instancia.ReiniciarPuntos();
+        GeneradorObstaculos.ColocarObstaculos();
+        cuantosCubosQuedan = 0;
+
+        ControladorDeSonidos.instance.EjecutarSonido(pulsacionBoton);
 
 
 
@@ -175,7 +191,11 @@ public class Gameplay : MonoBehaviour
         textos.SetActive(false);
         puntos = 0;
         tiempo = 0;
-       
+        PuntosManager.Instancia.restarCubos = 0;
+        GeneradorObstaculos.DestruirObstaculos();
+
+        ControladorDeSonidos.instance.EjecutarSonido(pulsacionBoton);
+
     }
 
 

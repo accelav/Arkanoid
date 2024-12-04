@@ -9,17 +9,19 @@ public class PuntosManager : MonoBehaviour
     private int puntos;
     private int record;
     public int restarCubos = 0;
+    public int vecesRoto;
 
     private void Awake()
     {
-        if (Instancia != null && Instancia != this)
+        if (Instancia == null)
         {
-            Destroy(gameObject); // Elimina duplicados
-            return;
+            Instancia = this;
+            DontDestroyOnLoad(gameObject);
         }
-
-        Instancia = this;
-        DontDestroyOnLoad(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
 
         CargarRecord();
     }
@@ -73,4 +75,10 @@ public class PuntosManager : MonoBehaviour
     {
         restarCubos =  restarCubos - 1;
     }
+
+    public void ContarRotura(int n)
+    {
+        vecesRoto += n;
+    }
+
 }

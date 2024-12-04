@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-
 public class MovimientoPelota : MonoBehaviour
 {
     public Gameplay Gameplay;
@@ -16,10 +15,22 @@ public class MovimientoPelota : MonoBehaviour
     Vector3 vectorPelota = new Vector3(1, 1, 0);
     Vector3 vectorInicial;
 
+    [SerializeField]
+    private AudioClip tocarPared;
+    [SerializeField]
+    private AudioClip tocarPlataforma;
+
+
+    public float tiempo;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); 
+        rb = GetComponent<Rigidbody>();
+        Gameplay = FindObjectOfType<Gameplay>();
+        MovimientoPlataforma = FindObjectOfType<MoviemientoPlataforma>();
+        ComportamientoCubos = FindObjectOfType<ComportamientoCubos>();
     }
 
     // Update is called once per frame
@@ -31,12 +42,12 @@ public class MovimientoPelota : MonoBehaviour
 
         if (Gameplay.estaIniciada == true)
         {
-            LeanTween.alpha(gameObject, 1f, 2f);
+            LeanTween.alpha(gameObject, 1f, 0.5f);
         }
 
 
         float posicionXPlataforma = MovimientoPlataforma.gameObject.transform.position.x;
-        if (Input.GetKeyDown(KeyCode.Space) && (moviendo == false))
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 1")) && (moviendo == false))
         {
             moviendo = true;
 
@@ -72,7 +83,17 @@ public class MovimientoPelota : MonoBehaviour
 
         }
 
+        if (velocidad < 2f)
+        {
+            tiempo += Time.deltaTime;
 
+            
+        }
+        if (tiempo >= 10f)
+        {
+            velocidad = 2;
+            tiempo = 0f;
+        }
 
     }
 
@@ -86,6 +107,7 @@ public class MovimientoPelota : MonoBehaviour
 
         if (collision.gameObject.tag == "Plataforma")
         {
+            ControladorDeSonidos.instance.EjecutarSonido(tocarPlataforma);
             foreach (ContactPoint contact in collision.contacts)
             {
                 float puntoDeContacto = contact.point.x;
@@ -94,7 +116,7 @@ public class MovimientoPelota : MonoBehaviour
                 
 
                 float diferencia = puntoDeContacto - centroPlataforma;
-                float anchoPlataforma = collision.collider.bounds.size.x / 2; // Mitad del ancho
+                float anchoPlataforma = collision.collider.bounds.size.x / 4; // Mitad del ancho
 
                 float factor = diferencia / anchoPlataforma; 
 
@@ -114,6 +136,7 @@ public class MovimientoPelota : MonoBehaviour
 
         else
         {
+            ControladorDeSonidos.instance.EjecutarSonido(tocarPared);
             foreach (ContactPoint contact in collision.contacts)
             {
                 Vector3 normal = contact.normal;
@@ -138,11 +161,13 @@ public class MovimientoPelota : MonoBehaviour
 
             if (Gameplay.vida <= 0)
             {
+               
                 Gameplay.textos.SetActive(false);
                 Gameplay.imagenGameOver.gameObject.SetActive(true);
                 gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
                 Gameplay.estaContando = false;
                 Gameplay.canvasPuntosFinales.SetActive(true);
+                LeanTween.alpha(gameObject, 0f, 2f).setOnComplete(() => { });
 
 
             }

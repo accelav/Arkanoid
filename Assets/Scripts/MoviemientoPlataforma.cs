@@ -35,6 +35,7 @@ public class MoviemientoPlataforma : MonoBehaviour
         if (Gameplay.vida <= 0)
         {
             velocidad = 0;
+            LeanTween.alpha(gameObject, 0f, 0.5f).setOnComplete(() => { });
         }
         else
         {
@@ -62,9 +63,17 @@ public class MoviemientoPlataforma : MonoBehaviour
         {
             if (MovimientoPelota.moviendo == true)
             {
-                LeanTween.scaleY(gameObject, 0.07f, 0.15f).setLoopPingPong(1).setOnComplete(() => { });
+                LeanTween.scaleZ(gameObject, 0.02f, 0.1f).setLoopPingPong(1).setOnComplete(() => { transform.localScale = new Vector3(0.28f, 0.49f,  0.05f); });
             }
             
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag =="CorazonPowerUp")
+        {
+            Debug.Log("corazon Ha Tocado");
         }
     }
 }

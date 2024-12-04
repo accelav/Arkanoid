@@ -12,6 +12,7 @@ TagManager:
   - Cube2
   - Otro
   - Pelota
+  - CorazonPowerUp
   layers:
   - Default
   - TransparentFX

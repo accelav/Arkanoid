@@ -121,3 +121,8 @@ MonoBehaviour:
   vidasCubo: 2
   sumaPuntos: 500
   haGolpeado: 0
+  powerUps:
+  - {fileID: 9064272707879976026, guid: 9de9353ea2c82a94598b99428968e0c4, type: 3}
+  - {fileID: 2795827993912932916, guid: 7eb2966fb12596e4c9ddf87271e2de22, type: 3}
+  posicionObjeto: {x: 0, y: 0, z: 0}
+  romperCubo: {fileID: 8300000, guid: 47d755c7b2868c5418f57910f641680e, type: 3}
