@@ -13,7 +13,6 @@ public class ComportamientoPowerUps : MonoBehaviour
 
     public bool corazonPowerUp;
     public bool realentizadorPowerUp;
-    public bool destructorPowerUp;
     public bool inversionPlataformaPU;
     public bool estaInvirtiendo = false;
 
@@ -71,11 +70,6 @@ public class ComportamientoPowerUps : MonoBehaviour
                 ControladorDeSonidos.instance.EjecutarSonido(realentizador);
                 Destroy(gameObject);
             }
-        }
-        if (destructorPowerUp)
-        {
-            ComportamientoCubos.estaDestruyendo = true;
-            Destroy(gameObject);
         }
     }
 }
