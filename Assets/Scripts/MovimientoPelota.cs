@@ -55,11 +55,6 @@ public class MovimientoPelota : MonoBehaviour
 
         }
 
-        
-        //rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -5f, 5f), Mathf.Clamp(rb.velocity.y, 0f, 5f), 0f);
-
-
-
         if (moviendo)
         {
 
@@ -69,11 +64,7 @@ public class MovimientoPelota : MonoBehaviour
             }
             else
             {
-
-                //transform.position += (movimientoHorizontal + movimientoVertical) * Time.deltaTime * velocidad;
                 Gameplay.estaContando = true;
-
-
             }
         }
         
@@ -86,8 +77,6 @@ public class MovimientoPelota : MonoBehaviour
         if (velocidad < 2f)
         {
             tiempo += Time.deltaTime;
-
-            
         }
         if (tiempo >= 10f)
         {

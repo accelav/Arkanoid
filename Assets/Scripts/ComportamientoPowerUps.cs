@@ -12,6 +12,10 @@ public class ComportamientoPowerUps : MonoBehaviour
     public bool corazonPowerUp;
     public bool realentizadorPowerUp;
 
+    [SerializeField]
+    AudioClip corazon;
+    [SerializeField]
+    AudioClip realentizador;
 
     private void Start()
     {
@@ -34,6 +38,7 @@ public class ComportamientoPowerUps : MonoBehaviour
             {
                 Gameplay.vida++;
                 PuntosManager.Instancia.SumarPuntos(723);
+                ControladorDeSonidos.instance.EjecutarSonido(corazon);
                 Destroy(gameObject);
             }
         }
@@ -43,6 +48,7 @@ public class ComportamientoPowerUps : MonoBehaviour
             {
   
                 MovimientoPelota.velocidad = 0.8f;
+                ControladorDeSonidos.instance.EjecutarSonido(realentizador);
                 Destroy(gameObject);
                 
             }

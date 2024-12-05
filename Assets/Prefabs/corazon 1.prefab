@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gameplay: {fileID: 0}
-  pelota: {fileID: 4391935937970907745, guid: 663839cbc193d89439aceec623b12f3b, type: 3}
+  MovimientoPelota: {fileID: 0}
   corazonPowerUp: 1
-  destructorPowerUp: 0
+  realentizadorPowerUp: 0
+  corazon: {fileID: 8300000, guid: 8a0810303b7a96f43bcd0dfa6fc6f215, type: 3}
+  realentizador: {fileID: 8300000, guid: 2cb132c72735b5b49bd9e5ea4f77286c, type: 3}

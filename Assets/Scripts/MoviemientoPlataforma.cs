@@ -57,7 +57,7 @@ public class MoviemientoPlataforma : MonoBehaviour
         // Aplicar la nueva posición al Rigidbody
         rb.MovePosition(nuevaPosicion);
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if(collision.gameObject.tag == "Pelota")
         {

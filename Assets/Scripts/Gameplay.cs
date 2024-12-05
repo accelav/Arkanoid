@@ -75,6 +75,10 @@ public class Gameplay : MonoBehaviour
     [SerializeField]
     private AudioClip pulsacionBoton;
 
+    [SerializeField]
+    GameObject opcionesCanvas;
+    bool opciones = false;
+    bool atras = false;
 
     void Start()
     {
@@ -141,12 +145,30 @@ public class Gameplay : MonoBehaviour
             reiniciandoPartida = false;
         }
 
+        if (opciones)
+        {
+            LeanTween.moveLocalY(botonesInicio, -700f, velocidad).setEase(LeanTweenType.easeOutSine);
+            imagenInicio.SetActive(false);
+            opcionesCanvas.SetActive(true);
+            opciones = false;
+        }
+
+        if (atras)
+        {
+            LeanTween.moveLocalY(botonesInicio, 0f, velocidad).setEase(LeanTweenType.easeOutSine);
+            imagenInicio.SetActive(true);
+            opcionesCanvas.SetActive(false);
+            atras = false;
+        }
+
         if (estaContando)
         {
             tiempo += Time.deltaTime;
 
             if (numeroObstaculos + PuntosManager.Instancia.restarCubos == 0)
             {
+                numeroObstaculos = 0;
+                PuntosManager.Instancia.restarCubos = 0;
                 GeneradorObstaculos.DestruirObstaculos();
                 if (GeneradorObstaculos.obstáculosGenerados == false)
                 {
@@ -191,12 +213,23 @@ public class Gameplay : MonoBehaviour
         textos.SetActive(false);
         puntos = 0;
         tiempo = 0;
+        numeroObstaculos = 0;
         PuntosManager.Instancia.restarCubos = 0;
         GeneradorObstaculos.DestruirObstaculos();
+
 
         ControladorDeSonidos.instance.EjecutarSonido(pulsacionBoton);
 
     }
 
+    public void Opciones()
+    {
+        opciones = true;
+    }
+
+    public void Atras()
+    {
+        atras = true;
+    }
 
 }
