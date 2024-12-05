@@ -17,10 +17,14 @@ public class ComportamientoCubos : MonoBehaviour
     public GameObject[] powerUps;
     GameObject elegirPowerUp;
 
+    public bool estaDestruyendo;
+
     public Vector3 posicionObjeto;
 
     [SerializeField]
     private AudioClip romperCubo;
+
+    int probabilidad;
 
     void Start()
     {
@@ -32,6 +36,7 @@ public class ComportamientoCubos : MonoBehaviour
     {
         posicionObjeto = gameObject.transform.position;
 
+
     }
 
     private void OnCollisionStay(Collision collision)
@@ -39,6 +44,12 @@ public class ComportamientoCubos : MonoBehaviour
         
         if (collision.gameObject.tag == "Pelota")
         {
+
+            if (estaDestruyendo)
+            {
+                Destroy(gameObject);
+                estaDestruyendo = false;
+            }
             posicionObjeto = gameObject.transform.position;
 
             elegirPowerUp = powerUps[Random.Range(0, powerUps.Length)];
@@ -60,15 +71,14 @@ public class ComportamientoCubos : MonoBehaviour
 
                     PuntosManager.Instancia.ContarRotura(vecesRoto);
 
-                    if (PuntosManager.Instancia.vecesRoto == 10)
+                    probabilidad = Random.Range(1, 4);
+                    if (probabilidad == 2)
                     {
                         Instantiate(elegirPowerUp, posicionObjeto, Quaternion.Euler(-90, 0, 0));
 
                         PuntosManager.Instancia.vecesRoto = 0;
                     }
                     
-                    
-
                     Destroy(gameObject);
 
                     

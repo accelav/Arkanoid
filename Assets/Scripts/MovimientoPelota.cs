@@ -38,7 +38,6 @@ public class MovimientoPelota : MonoBehaviour
     void Update()
     {
         rb.velocity = (movimientoHorizontal + movimientoVertical).normalized * velocidad;
-        //Debug.Log("Velocity" + rb.velocity);
 
         if (Gameplay.estaIniciada == true)
         {
@@ -105,11 +104,9 @@ public class MovimientoPelota : MonoBehaviour
                 
 
                 float diferencia = puntoDeContacto - centroPlataforma;
-                float anchoPlataforma = collision.collider.bounds.size.x / 4; // Mitad del ancho
+                float anchoPlataforma = collision.collider.bounds.size.x / 4;
 
-                float factor = diferencia / anchoPlataforma; 
-
-                
+                float factor = diferencia / anchoPlataforma;
 
                 movimientoHorizontal = new Vector3(factor, 0, 0);
                 movimientoVertical = new Vector3(0, 1, 0);
@@ -150,10 +147,10 @@ public class MovimientoPelota : MonoBehaviour
 
             if (Gameplay.vida <= 0)
             {
-               
-                Gameplay.textos.SetActive(false);
-                Gameplay.imagenGameOver.gameObject.SetActive(true);
                 gameObject.transform.position = new Vector3(posicionXPlataforma, 0.15f, 0);
+
+                Gameplay.textos.SetActive(false);
+                Gameplay.imagenGameOver.gameObject.SetActive(true);  
                 Gameplay.estaContando = false;
                 Gameplay.canvasPuntosFinales.SetActive(true);
                 LeanTween.alpha(gameObject, 0f, 2f).setOnComplete(() => { });

@@ -9083,10 +9083,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gameplay: {fileID: 1906732290}
   MovimientoPelota: {fileID: 1147258669}
+  ComportamientoPowerUps: {fileID: 7410710049764340199, guid: 5e86cf5ec39fbfa479aaa68f25b5161d,
+    type: 3}
   limiteDer: 0.85
   limiteIzq: -0.85
   velocidad: 100
+  movimiento: 0
+  nuevaPosicion: {x: 0, y: 0, z: 0}
+  estaInvirtiendo: 0
   posicionPlataforma: {x: 0, y: 0, z: 0}
+  tiempo: 0
 --- !u!65 &1481963368
 BoxCollider:
   m_ObjectHideFlags: 0

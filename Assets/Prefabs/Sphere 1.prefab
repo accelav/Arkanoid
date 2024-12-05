@@ -149,8 +149,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gameplay: {fileID: 0}
   MovimientoPelota: {fileID: 0}
+  MoviemientoPlataforma: {fileID: 0}
   corazonPowerUp: 0
   realentizadorPowerUp: 1
+  inversionPlataformaPU: 0
+  estaInvirtiendo: 0
   corazon: {fileID: 8300000, guid: 8a0810303b7a96f43bcd0dfa6fc6f215, type: 3}
   realentizador: {fileID: 8300000, guid: 2cb132c72735b5b49bd9e5ea4f77286c, type: 3}
 --- !u!1 &7506425124710643607

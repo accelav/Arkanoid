@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 211922254200285236}
   - component: {fileID: 6453224937873992471}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Inversion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1aee7819f61d08540a4137a757471554, type: 2}
+  - {fileID: 2100000, guid: 3bdc4e8586f263d4d896961d392ed725, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,8 +149,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gameplay: {fileID: 0}
   MovimientoPelota: {fileID: 0}
+  MoviemientoPlataforma: {fileID: 0}
   corazonPowerUp: 0
-  realentizadorPowerUp: 1
+  realentizadorPowerUp: 0
+  inversionPlataformaPU: 1
+  estaInvirtiendo: 0
   corazon: {fileID: 8300000, guid: 8a0810303b7a96f43bcd0dfa6fc6f215, type: 3}
   realentizador: {fileID: 8300000, guid: 2cb132c72735b5b49bd9e5ea4f77286c, type: 3}
 --- !u!1 &7561404404481482271

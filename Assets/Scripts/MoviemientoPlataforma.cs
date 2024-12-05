@@ -5,6 +5,7 @@ public class MoviemientoPlataforma : MonoBehaviour
 {
     public Gameplay Gameplay;
     public MovimientoPelota MovimientoPelota;
+    public ComportamientoPowerUps ComportamientoPowerUps;
 
     public float limiteDer = 0.95f;   // Límite derecho
     public float limiteIzq = -0.95f; // Límite izquierdo
@@ -12,15 +13,24 @@ public class MoviemientoPlataforma : MonoBehaviour
 
     GameObject plataforma;
 
+    public float movimiento;
+    public Vector3 nuevaPosicion;
+    public bool estaInvirtiendo;
+
     private Rigidbody rb;
     private Vector3 escalaPlataforma;
     public Vector3 posicionPlataforma;
+
+    public float tiempo = 0f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         escalaPlataforma = transform.localScale;
         posicionPlataforma = transform.localPosition;
+        ComportamientoPowerUps = FindObjectOfType<ComportamientoPowerUps>();
+        estaInvirtiendo = false;
+
     }
     private void Update()
     {
@@ -28,8 +38,8 @@ public class MoviemientoPlataforma : MonoBehaviour
         {
 
             LeanTween.alpha(gameObject, 1f, 2f);
-            
 
+            
         }
 
         if (Gameplay.vida <= 0)
@@ -39,17 +49,38 @@ public class MoviemientoPlataforma : MonoBehaviour
         }
         else
         {
-            velocidad = 100f;
+            if (estaInvirtiendo)
+            {
+                tiempo += Time.deltaTime;
+                velocidad = -100f;
+                Debug.Log("Ha Cambiado");
+
+                if (tiempo >= 10f)
+                {
+                    estaInvirtiendo = false;
+                    tiempo = 0f;
+                }
+            }
+            else
+            {
+                velocidad = 100f;
+            }
+            
         }
+
+        
     }
     void FixedUpdate()
     {
 
-        
-        float movimiento = Input.GetAxisRaw("Horizontal") * Time.deltaTime * velocidad;
 
-        // Calcular nueva posición basada en la entrada
-        Vector3 nuevaPosicion = rb.position + new Vector3(movimiento * Time.fixedDeltaTime, 0, 0);
+        
+        movimiento = Input.GetAxisRaw("Horizontal") * Time.deltaTime * velocidad;
+        
+       
+        nuevaPosicion = rb.position + new Vector3(movimiento * Time.fixedDeltaTime, 0, 0);
+        
+        
 
         // Restringir la posición dentro de los límites
         nuevaPosicion.x = Mathf.Clamp(nuevaPosicion.x, limiteIzq + escalaPlataforma.x / 2, limiteDer - escalaPlataforma.x / 2);
